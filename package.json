@@ -19,7 +19,7 @@
     "require": [
       "babel-register",
       "babel-polyfill",
-      "ignore-styles"
+      "mock-css-modules"
     ]
   },
   "dependencies": {
@@ -36,8 +36,10 @@
     "babel-preset-react": "^6.23.0",
     "babel-register": "^6.24.0",
     "css-loader": "^0.27.3",
-    "ignore-styles": "^5.0.1",
+    "enzyme": "^2.7.1",
+    "mock-css-modules": "^1.0.0",
     "postcss-loader": "^1.3.3",
+    "react-addons-test-utils": "^15.4.2",
     "serve": "^4.0.1",
     "style-loader": "^0.16.0",
     "webpack": "^2.2.1"
