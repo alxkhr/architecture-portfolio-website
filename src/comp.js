@@ -1,9 +1,10 @@
 import React from 'react';
 import { markdown } from 'markdown';
+import style from '../style/comp.css';
 
 export default function Comp() {
   return (
-    <div>
+    <div className={style.comp}>
       <h1>{rsscContent.title}</h1>
       <div>
         {rsscContent.projects.map(

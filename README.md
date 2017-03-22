@@ -7,7 +7,7 @@ A super simple CMS based on React and a JS-object-file containing the content.
 # build it
 
 ```
-npm install
-npm run build
-npm start
+yarn
+yarn run build
+yarn start
 ```
