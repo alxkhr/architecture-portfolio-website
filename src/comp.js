@@ -7,8 +7,14 @@ export default function Comp() {
       <h1>{rsscContent.title}</h1>
       <div>
         {rsscContent.projects.map(
-          ({ year, title, description }, i) => <div key={i}><h2>{year} - {title}</h2><div dangerouslySetInnerHTML={{ __html: markdown.toHTML(description) }} /></div>
-        )}
+          ({ year, title, description, imageSource }, i) => (
+            <div key={i}>
+              <img src={`assets/${imageSource}`} />
+              <h2>{year} - {title}</h2>
+              <div dangerouslySetInnerHTML={{ __html: markdown.toHTML(description) }} />
+            </div>
+          ))
+        }
       </div>
     </div>
   );

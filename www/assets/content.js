@@ -4,15 +4,15 @@ rsscContent = {
     {
       year: '2001',
       title: 'some title',
-      imageSource: 'some-image',
-      thumbnailSource: 'some-thumbnail',
+      imageSource: 'example-image.jpg',
+      thumbnailSource: 'example-thumb.jpg',
       description: 'some *description* about the project'
     },
     {
       year: '2007',
       title: 'some other title',
-      imageSource: 'some-other-image',
-      thumbnailSource: 'some-other-thumbnail',
+      imageSource: 'example-image.jpg',
+      thumbnailSource: 'example-thumb.jpg',
       description: 'some other description about the project'
     }
   ]
