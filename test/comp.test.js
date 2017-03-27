@@ -1,5 +1,5 @@
-import React from 'react';
 import test from 'ava';
+import React from 'react';
 import { shallow } from 'enzyme';
 import Comp from '../src/comp';
 
@@ -25,7 +25,6 @@ global.rsscContent = {
 
 test('foo', t => {
   const wrapper = shallow(<Comp />);
-  console.log('comp', wrapper.html());
   t.pass();
 });
 
