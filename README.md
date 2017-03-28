@@ -1,8 +1,8 @@
-# react-super-simple-cms
+# architecture-portfolio-website
 
-[![Build Status](https://travis-ci.org/alxkhr/react-super-simple-cms.svg?branch=master)](https://travis-ci.org/alxkhr/react-super-simple-cms)
+[![Build Status](https://travis-ci.org/alxkhr/architecture-portfolio-website.svg?branch=master)](https://travis-ci.org/alxkhr/architecture-portfolio-website)
 
-A super simple CMS based on React and a JS-object-file containing the content.
+A portfolio website for architects based on React and a JS-object-file containing the content.
 
 **Work in progress!**
 
