@@ -34,4 +34,4 @@ Thumb.propTypes = {
   image: PropTypes.string.isRequired,
   hoverImage: PropTypes.string.isRequired,
   anchor: PropTypes.string.isRequired,
-}
+};
