@@ -1,10 +1,10 @@
 {
-  "name": "react-super-simple-cms",
+  "name": "architecture-portfolio-website",
   "version": "0.0.1",
   "description": "A super simple CMS based on React and a JS-object-file containing the content.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alxkhr/react-super-simple-cms.git"
+    "url": "https://github.com/alxkhr/architecture-portfolio-website.git"
   },
   "scripts": {
     "test": "ava",

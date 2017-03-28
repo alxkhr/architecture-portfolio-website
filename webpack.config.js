@@ -4,7 +4,7 @@ const config = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'www/scripts'),
-    filename: 'react-super-simple-cms.js'
+    filename: 'architecture-portfolio-website.js'
   },
   module: {
     rules: [
