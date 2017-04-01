@@ -1,32 +1,61 @@
 import test from 'ava';
 import React from 'react';
 import { shallow } from 'enzyme';
-// import Project from '../src/project';
-// import Gallery from '../src/gallery';
+import Project from '../src/project';
+import Gallery from '../src/gallery';
 
-// const requiredProps = {
-//   title: 't',
-//   image: 'i',
-//   anchor: 'a',
-//   hoverImage: 'h',
-// };
+const requiredProps = {
+  title: 't',
+  summary: 's',
+  anchor: 'a',
+  images: [],
+};
 
-// test('Render the given title.', t => {
-//   const wrapper = shallow(<Project title="foo title" />);
-//   t.true(wrapper.containsMatchingElement(<h2>foo title</h2>));
-// });
+test('Render the given title and summary.', t => {
+  const wrapper = shallow(<Project {...requiredProps} title="foo title" summary="foo summary" />);
+  t.true(wrapper.containsMatchingElement(<h1>foo title</h1>));
+  t.true(wrapper.containsMatchingElement(<p>foo summary</p>));
+});
 
-// test('Render the given image, if only one is given.', t => {
-//   const wrapper = shallow(<Project images={['foo-image.jpg']} />);
-//   t.true(wrapper.containsMatchingElement(<img src="foo-image.jpg" />));
-// });
+test('Render the given image, if only one is given.', t => {
+  const wrapper = shallow(<Project {...requiredProps} images={['foo-image.jpg']} />);
+  t.true(wrapper.containsMatchingElement(<img src="foo-image.jpg" />));
+  t.is(wrapper.find('Gallery').length, 0);
+});
 
-// test('Render a Gallery, if more than one image is given.', t => {
-//   const wrapper = shallow(<Project images={['foo-image.jpg']} />);
-//   t.true(wrapper.containsMatchingElement(<Gallery />));
-// });
+test('Render a Gallery, if more than one image is given.', t => {
+  const wrapper = shallow(
+    <Project {...requiredProps} images={['foo1.jpg', 'foo2.jpg', 'foo3.jpg']} />,
+  );
+  t.false(wrapper.containsMatchingElement(<img src="foo-image.jpg" />));
+  t.is(wrapper.find('Gallery').length, 1);
+});
 
-test.todo('Pass the images to the Gallery.');
-test.todo('Render the given summary.');
-test.todo('Render the given specification, if given.');
-test.todo('Render a list item for every key/value pair in the specification.');
+test('Pass the images to the Gallery.', t => {
+  const images = ['foo1.jpg', 'foo2.jpg', 'foo3.jpg'];
+  const wrapper = shallow(<Project {...requiredProps} images={images} />);
+  t.deepEqual(wrapper.find('Gallery').props('images'), { images });
+});
+
+test('Render the specification, if given. Render a list item for every key/value pair.', t => {
+  const specification = [
+    { id: 'one', value: 'foo' },
+    { id: 'two', value: 'bar' },
+    { id: 'three', value: 'baz' },
+  ];
+  const wrapper = shallow(<Project {...requiredProps} specification={specification} />);
+  t.true(
+    wrapper.containsMatchingElement(
+      <ul>
+        <li><span>one</span><span>foo</span></li>
+        <li><span>two</span><span>bar</span></li>
+        <li><span>three</span><span>baz</span></li>
+      </ul>,
+    ),
+  );
+});
+
+test('Set the given anchor', t => {
+  const wrapper = shallow(<Project {...requiredProps} anchor="foo-anchor" />);
+  t.is(wrapper.prop('id'), 'foo-anchor');
+});
