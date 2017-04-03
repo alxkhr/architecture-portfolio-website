@@ -1,19 +1,54 @@
 rsscContent = {
-  title: 'testTitle',
+  title: 'foo title',
   projects: [
     {
-      year: '2001',
+      anchor: 'project1',
       title: 'some title',
-      imageSource: 'example-image.jpg',
-      thumbnailSource: 'example-thumb.jpg',
-      description: 'some *description* about the project'
+      imageSources: ['example1-image.jpg'],
+      thumbnailSource: 'example1-thumb.jpg',
+      thumbnailHoverSource: 'example1-hover-thumb.jpg',
+      summary: 'some *description* about the project',
+      specification: { one: 'foo', two: 'bar', three: 'baz' },
     },
     {
-      year: '2007',
+      anchor: 'project2',
       title: 'some other title',
-      imageSource: 'example-image.jpg',
-      thumbnailSource: 'example-thumb.jpg',
-      description: 'some other description about the project'
-    }
-  ]
+      imageSources: ['example2a-image.jpg', 'example2b-image.jpg', 'example2c-image.jpg'],
+      thumbnailSource: 'example2-thumb.jpg',
+      thumbnailHoverSource: 'example2-hover-thumb.jpg',
+      summary: 'some _other_ description about the project',
+      specification: { foo: 'barbaz' },
+    },
+    {
+      anchor: 'project3',
+      title: 'some third title',
+      imageSources: ['example3a-image.jpg', 'example3b-image.jpg'],
+      thumbnailSource: 'example3-thumb.jpg',
+      thumbnailHoverSource: 'example3-hover-thumb.jpg',
+      summary: 'some **third** description about the project',
+      specification: { one: 'foo', two: 'bar' },
+    },
+  ],
+  projectOverview: {
+    navigationTitle: 'Projekte',
+    anchor: 'overview',
+  },
+  team: {
+    navigationTitle: 'Team',
+    anchor: 'team',
+    portrait: 'portrait-image.jpg',
+    biography: 'some foo biography',
+    employees: ['personFoo', 'personBar', 'personBaz'],
+  },
+  contact: {
+    navigationTitle: 'Kontakt',
+    anchor: 'contact',
+    phone: 'foo-number',
+    email: 'foo.email@address.bar',
+    address: 'foo, address',
+  },
+  disclaimer: {
+    anchor: 'disclaimer',
+    text: 'some foo disclaimer',
+  },
 };

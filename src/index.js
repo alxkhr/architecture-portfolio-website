@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Comp from './comp';
+import ContentProvider from './content-provider';
 
 ReactDOM.render(
-  <Comp />,
+  <ContentProvider />,
   document.getElementById('main')
 );
