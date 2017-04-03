@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 
-export default function Contact({ types }) {
+export default function Contact({ anchor, types }) {
   return (
-    <div>
+    <div id={anchor}>
       <ul>
         {types.map(({ type, value }, i) => (
           <li key={i}><span>{type}</span><span>{value}</span></li>
@@ -13,6 +13,7 @@ export default function Contact({ types }) {
 }
 
 Contact.propTypes = {
+  anchor: PropTypes.string.isRequired,
   types: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.string.isRequired,

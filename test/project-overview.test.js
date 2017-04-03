@@ -25,13 +25,14 @@ const projects = [
   },
 ];
 
-test('Render a Thumb for every given project.', t => {
-  const wrapper = shallow(<ProjectOverview projects={projects} />);
+test('Render the given anchor and a Thumb for every given project.', t => {
+  const wrapper = shallow(<ProjectOverview anchor="foo-anchor" projects={projects} />);
+  t.is(wrapper.prop('id'), 'foo-anchor');
   t.is(wrapper.find('Thumb').length, 3);
 });
 
 test('Pass the thumbnail, the title and the anchor of the project to the Thumb.', t => {
-  const wrapper = shallow(<ProjectOverview projects={projects} />);
+  const wrapper = shallow(<ProjectOverview anchor="foo-anchor" projects={projects} />);
   t.true(
     wrapper.containsMatchingElement(
       <Thumb

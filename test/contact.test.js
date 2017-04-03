@@ -3,9 +3,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Contact from '../src/contact';
 
-test('Render a list item for every given type/value pair.', t => {
+test('Render the given anchor and a list item for every given type/value pair.', t => {
   const wrapper = shallow(
     <Contact
+      anchor="foo-anchor"
       types={[
         { type: 'one', value: 'foo' },
         { type: 'two', value: 'bar' },
@@ -13,6 +14,7 @@ test('Render a list item for every given type/value pair.', t => {
       ]}
     />,
   );
+  t.is(wrapper.prop('id'), 'foo-anchor');
   t.true(
     wrapper.containsMatchingElement(
       <ul>

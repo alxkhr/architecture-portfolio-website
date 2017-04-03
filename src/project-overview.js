@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import Thumb from './thumb';
 
-export default function ProjectOverview({ projects }) {
+export default function ProjectOverview({ anchor, projects }) {
   return (
-    <div>
+    <div id={anchor}>
       {projects.map(({ thumbnail: image, thumbnailHover: hoverImage, title, anchor }, i) =>
         <Thumb key={i} {...{ image, hoverImage, title, anchor }} />
       )}
@@ -12,6 +12,7 @@ export default function ProjectOverview({ projects }) {
 }
 
 ProjectOverview.propTypes = {
+  anchor: PropTypes.string.isRequired,
   projects: PropTypes.arrayOf(PropTypes.shape({
     thumbnail: PropTypes.string.isRequired,
     thumbnailHover: PropTypes.string.isRequired,
