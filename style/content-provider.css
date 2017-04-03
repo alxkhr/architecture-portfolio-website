@@ -1,0 +1,14 @@
+.navigationContainer {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.navigation {
+  flex: 0 0 auto;
+}
+
+.scrollContainer {
+  flex: 1 1 auto;
+  overflow-y: scroll;
+}

@@ -6,19 +6,22 @@ import Project from './project';
 import Team from './team';
 import Contact from './contact';
 import Disclaimer from './disclaimer';
+import style from '../style/content-provider.css';
 
 export default function ContentProvider() {
   if (!rsscContent) return <ErrorSite text="Daten konnten nicht geladen werden." />;
   const { title, projects, projectOverview, team, contact, disclaimer } = rsscContent;
   return (
-    <div>
-      <Navigation
-        title={title}
-        navigation={[projectOverview, team, contact, disclaimer]
-          .filter(section => Boolean(section.navigationTitle))
-          .map(section => ({ title: section.navigationTitle, anchor: section.anchor }))}
-      />
-      <div>
+    <div className={style.navigationContainer}>
+      <div className={style.navigation}>
+        <Navigation
+          title={title}
+          navigation={[projectOverview, team, contact, disclaimer]
+            .filter(section => Boolean(section.navigationTitle))
+            .map(section => ({ title: section.navigationTitle, anchor: section.anchor }))}
+        />
+      </div>
+      <div className={style.scrollContainer}>
         <ProjectOverview
           anchor={projectOverview.anchor}
           projects={projects.map(project => ({
