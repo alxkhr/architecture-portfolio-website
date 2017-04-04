@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react';
+import styles from '../style/navigation.css';
 
 export default function Navigation({ title, navigation }) {
   return (
-    <div>
-      <h1>{title}</h1>
-      <ul>
+    <div className={styles.navigation}>
+      <h1 className={styles.title}>{title}</h1>
+      <ul className={styles.menu}>
         {navigation.map(({ title, anchor }, i) => (
-          <li key={i}><a href={`#${anchor}`}>{title}</a></li>
+          <li className={styles.item} key={i}><a href={`#${anchor}`}>{title}</a></li>
         ))}
       </ul>
     </div>

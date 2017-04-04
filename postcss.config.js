@@ -2,7 +2,7 @@ module.exports = {
   plugins: [
     // require('postcss-smart-import')(}),
     // require('precss')({}),
-    require('autoprefixer')({
+    require('postcss-cssnext')({
       browsers: [
         '>1%',
         'last 4 versions',

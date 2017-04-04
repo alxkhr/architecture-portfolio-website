@@ -13,14 +13,12 @@ export default function ContentProvider() {
   const { title, projects, projectOverview, team, contact, disclaimer } = rsscContent;
   return (
     <div className={style.navigationContainer}>
-      <div className={style.navigation}>
-        <Navigation
-          title={title}
-          navigation={[projectOverview, team, contact, disclaimer]
-            .filter(section => Boolean(section.navigationTitle))
-            .map(section => ({ title: section.navigationTitle, anchor: section.anchor }))}
-        />
-      </div>
+      <Navigation
+        title={title}
+        navigation={[projectOverview, team, contact, disclaimer]
+          .filter(section => Boolean(section.navigationTitle))
+          .map(section => ({ title: section.navigationTitle, anchor: section.anchor }))}
+      />
       <div className={style.scrollContainer}>
         <ProjectOverview
           anchor={projectOverview.anchor}

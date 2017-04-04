@@ -18,6 +18,20 @@ body {
   color: #888;
 }
 
-div {
+body > div {
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
+  align-items: center;
+}
+
+div, ul, li, p, h1, h2, h3, img {
   position: relative;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
 }
