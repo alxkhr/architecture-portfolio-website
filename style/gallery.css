@@ -1,0 +1,13 @@
+.gallery {
+  width: 915px;
+  height: 610px;
+}
+
+.image {
+  position: absolute;
+  z-index: 0;
+}
+
+.menu {
+  position: absolute;
+}

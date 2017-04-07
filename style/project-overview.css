@@ -1,0 +1,9 @@
+.overview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.overview > div {
+  flex: 0 0 auto;
+}

@@ -2,13 +2,13 @@ import React, { PropTypes } from 'react';
 
 export default function Team({ anchor, portrait, biography, employees }) {
   return (
-    <div id={anchor}>
+    <section id={anchor}>
       <img src={portrait} />
       <p>{biography}</p>
       <ul>
         {employees.map((employee, i) => <li key={i}>{employee}</li>)}
       </ul>
-    </div>
+    </section>
   );
 }
 

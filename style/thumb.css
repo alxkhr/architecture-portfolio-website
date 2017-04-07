@@ -1,0 +1,16 @@
+.thumb {
+  height: 225px;
+  width: 225px;
+}
+
+.title {
+  position: absolute;
+  text-decoration: none;
+  z-index: 1;
+  bottom: 0;
+}
+
+.image {
+  position: absolute;
+  z-index: 0;
+}

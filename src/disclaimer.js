@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 export default function Disclaimer({ anchor, children }) {
-  return <div id={anchor}><p>{children}</p></div>;
+  return <section id={anchor}><p>{children}</p></section>;
 }
 
 Disclaimer.propTypes = {

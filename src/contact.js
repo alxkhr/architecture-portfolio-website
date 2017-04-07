@@ -2,13 +2,13 @@ import React, { PropTypes } from 'react';
 
 export default function Contact({ anchor, types }) {
   return (
-    <div id={anchor}>
+    <section id={anchor}>
       <ul>
         {types.map(({ type, value }, i) => (
           <li key={i}><span>{type}</span><span>{value}</span></li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 }
 

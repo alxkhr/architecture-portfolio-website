@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import GalleryMenu from './gallery-menu';
+import styles from '../style/gallery.css';
 
 export default class Gallery extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ export default class Gallery extends Component {
     const { images } = this.props;
     this.setState(prevState => {
       let nextIndex = prevState.imageIndex - 1;
-      if (nextIndex <= 0) nextIndex = images.length - 1;
+      if (nextIndex < 0) nextIndex = images.length - 1;
       return { imageIndex: nextIndex };
     });
   }
@@ -35,13 +36,13 @@ export default class Gallery extends Component {
     const { images } = props;
     const { imageIndex, hovered } = state;
     return (
-      <div>
-        <img
-          onMouseEnter={() => this.setState({ hovered: true })}
-          onMouseLeave={() => this.setState({ hovered: false })}
-          src={images[imageIndex]}
-        />
-        {hovered && <GalleryMenu {...{ onClickNext, onClickPrevious }} />}
+      <div
+        className={styles.gallery}
+        onMouseEnter={() => this.setState({ hovered: true })}
+        onMouseLeave={() => this.setState({ hovered: false })}
+      >
+        <img className={styles.image} src={images[imageIndex]} />
+        {hovered && <GalleryMenu className={styles.menu} {...{ onClickNext, onClickPrevious }} />}
       </div>
     );
   }

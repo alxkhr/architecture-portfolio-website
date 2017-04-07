@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import styles from '../style/thumb.css';
 
 export default class Thumb extends Component {
   constructor(props) {
@@ -19,10 +20,10 @@ export default class Thumb extends Component {
     const { title, image, hoverImage, anchor } = this.props;
     const { hovered } = this.state;
     return (
-      <div>
+      <div className={styles.thumb}>
         <a href={`#${anchor}`} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
-          {!hovered && <h2>{title}</h2>}
-          <img src={hovered ? hoverImage : image} />
+          {!hovered && <h2 className={styles.title}>{title}</h2>}
+          <img className={styles.image} src={hovered ? hoverImage : image} />
         </a>
       </div>
     );

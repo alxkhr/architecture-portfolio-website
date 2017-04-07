@@ -1,13 +1,14 @@
 import React, { PropTypes } from 'react';
 import Thumb from './thumb';
+import styles from '../style/project-overview.css';
 
 export default function ProjectOverview({ anchor, projects }) {
   return (
-    <div id={anchor}>
+    <section className={styles.overview} id={anchor}>
       {projects.map(({ thumbnail: image, thumbnailHover: hoverImage, title, anchor }, i) =>
         <Thumb key={i} {...{ image, hoverImage, title, anchor }} />
       )}
-    </div>
+    </section>
   );
 }
 

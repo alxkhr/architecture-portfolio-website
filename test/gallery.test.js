@@ -14,26 +14,29 @@ test('Render the first of the given images.', t => {
 test('Render a GalleryMenu on entering the image (with the mouse).', t => {
   const wrapper = shallow(<Gallery images={['foo1.jpg', 'foo2.jpg', 'foo3.jpg']} />);
   t.false(wrapper.containsMatchingElement(<GalleryMenu />));
-  wrapper.find('img').simulate('mouseEnter');
+  wrapper.simulate('mouseEnter');
   t.true(wrapper.containsMatchingElement(<GalleryMenu />));
 });
 
 test('Dont render the GalleryMenu anymore on leaving.', t => {
   const wrapper = shallow(<Gallery images={['foo1.jpg', 'foo2.jpg', 'foo3.jpg']} />);
-  wrapper.find('img').simulate('mouseEnter');
-  wrapper.find('img').simulate('mouseLeave');
+  wrapper.simulate('mouseEnter');
+  wrapper.simulate('mouseLeave');
   t.false(wrapper.containsMatchingElement(<GalleryMenu />));
 });
 
 test('Pass a callback to the GalleryMenu that cycles through the given images', t => {
   const wrapper = shallow(<Gallery images={['foo1.jpg', 'foo2.jpg', 'foo3.jpg']} />);
-  wrapper.find('img').simulate('mouseEnter');
+  wrapper.simulate('mouseEnter');
   t.truthy(wrapper.find('GalleryMenu').prop('onClickNext'));
   wrapper.find('GalleryMenu').prop('onClickNext')();
   t.false(wrapper.containsMatchingElement(<img src="foo1.jpg" />));
   t.true(wrapper.containsMatchingElement(<img src="foo2.jpg" />));
   t.false(wrapper.containsMatchingElement(<img src="foo3.jpg" />));
   wrapper.find('GalleryMenu').prop('onClickNext')();
+  t.false(wrapper.containsMatchingElement(<img src="foo1.jpg" />));
+  t.false(wrapper.containsMatchingElement(<img src="foo2.jpg" />));
+  t.true(wrapper.containsMatchingElement(<img src="foo3.jpg" />));
   wrapper.find('GalleryMenu').prop('onClickNext')();
   t.true(wrapper.containsMatchingElement(<img src="foo1.jpg" />));
   t.false(wrapper.containsMatchingElement(<img src="foo2.jpg" />));
@@ -42,7 +45,7 @@ test('Pass a callback to the GalleryMenu that cycles through the given images', 
 
 test('Pass a callback to the GalleryMenu that cycles backwards through the given images', t => {
   const wrapper = shallow(<Gallery images={['foo1.jpg', 'foo2.jpg', 'foo3.jpg']} />);
-  wrapper.find('img').simulate('mouseEnter');
+  wrapper.simulate('mouseEnter');
   t.truthy(wrapper.find('GalleryMenu').prop('onClickPrevious'));
   wrapper.find('GalleryMenu').prop('onClickPrevious')();
   t.false(wrapper.containsMatchingElement(<img src="foo1.jpg" />));
@@ -51,6 +54,10 @@ test('Pass a callback to the GalleryMenu that cycles backwards through the given
   wrapper.find('GalleryMenu').prop('onClickPrevious')();
   t.false(wrapper.containsMatchingElement(<img src="foo1.jpg" />));
   t.true(wrapper.containsMatchingElement(<img src="foo2.jpg" />));
+  t.false(wrapper.containsMatchingElement(<img src="foo3.jpg" />));
+  wrapper.find('GalleryMenu').prop('onClickPrevious')();
+  t.true(wrapper.containsMatchingElement(<img src="foo1.jpg" />));
+  t.false(wrapper.containsMatchingElement(<img src="foo2.jpg" />));
   t.false(wrapper.containsMatchingElement(<img src="foo3.jpg" />));
 });
 

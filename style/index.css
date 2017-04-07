@@ -35,3 +35,7 @@ div, ul, li, p, h1, h2, h3, img {
 li {
   list-style: none;
 }
+
+section {
+  padding-top: 4rem;
+}

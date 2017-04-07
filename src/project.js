@@ -3,7 +3,7 @@ import Gallery from './gallery';
 
 export default function Project({ title, summary, images, specification, anchor }) {
   return (
-    <div id={anchor}>
+    <section id={anchor}>
       {images.length > 1 ? <Gallery images={images} /> : <img src={images[0]} />}
       <h1>{title}</h1>
       <p>{summary}</p>
@@ -14,7 +14,7 @@ export default function Project({ title, summary, images, specification, anchor 
             <li key={i}><span>{item.id}</span><span>{item.value}</span></li>
           ))}
         </ul>}
-    </div>
+    </section>
   );
 }
 
