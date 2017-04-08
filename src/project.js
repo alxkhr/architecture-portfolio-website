@@ -1,10 +1,13 @@
 import React, { PropTypes } from 'react';
 import Gallery from './gallery';
+import styles from '../style/project.css';
 
 export default function Project({ title, summary, images, specification, anchor }) {
   return (
     <section id={anchor}>
-      {images.length > 1 ? <Gallery images={images} /> : <img src={images[0]} />}
+      {images.length > 1
+        ? <Gallery images={images} />
+        : <img className={styles.image} src={images[0]} />}
       <h1>{title}</h1>
       <p>{summary}</p>
       {specification &&

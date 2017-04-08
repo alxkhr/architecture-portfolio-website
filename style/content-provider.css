@@ -1,6 +1,6 @@
 .navigationContainer {
   display: flex;
   height: 100vh;
-  width: 915px;
+  width: var(--siteWidth);
   flex-direction: column;
 }

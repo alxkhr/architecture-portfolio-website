@@ -1,11 +1,13 @@
 .gallery {
-  width: 915px;
-  height: 610px;
+  width: var(--siteWidth);
+  height: calc(var(--siteWidth) / 3 * 2);
 }
 
 .image {
   position: absolute;
   z-index: 0;
+  width: var(--siteWidth);
+  height: calc(var(--siteWidth) / 3 * 2);
 }
 
 .menu {

@@ -1,6 +1,10 @@
+:root {
+  --sideLength: calc((var(--siteWidth) - 15) / 4);
+}
+
 .thumb {
-  height: 225px;
-  width: 225px;
+  height: var(--sideLength);
+  width: var(--sideLength);
 }
 
 .title {
@@ -12,5 +16,7 @@
 
 .image {
   position: absolute;
+  height: var(--sideLength);
+  width: var(--sideLength);
   z-index: 0;
 }
