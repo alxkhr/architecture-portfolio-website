@@ -1,10 +1,12 @@
 :root {
-  --sideLength: calc((var(--siteWidth) - 15) / 4);
+  --sideLength: calc((var(--siteWidth) - 12) / 4);
 }
 
 .thumb {
   height: var(--sideLength);
   width: var(--sideLength);
+  flex: 0 0 auto;
+  margin: 2px;
 }
 
 .title {
