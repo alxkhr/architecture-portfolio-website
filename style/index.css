@@ -21,7 +21,6 @@ body {
 body > div {
   display: flex;
   flex-direction: column;
-  /*justify-content: center;*/
   align-items: center;
 }
 
@@ -38,4 +37,13 @@ li {
 
 section {
   padding-top: 4rem;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

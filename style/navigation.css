@@ -10,7 +10,6 @@
 .title {
   line-height: 4rem;
   flex: 1 0 auto;
-  padding-left: 1rem;
   padding-right: 1rem;
 }
 
@@ -25,4 +24,8 @@
   line-height: 4rem;
   padding-left: 1rem;
   padding-right: 1rem;
+
+  &:last-child {
+    padding-right: 0;
+  }
 }
