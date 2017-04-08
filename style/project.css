@@ -1,3 +1,7 @@
+.project {
+  width: var(--siteWidth);
+}
+
 .image {
   width: var(--siteWidth);
   height: calc(var(--siteWidth) / 3 * 2);

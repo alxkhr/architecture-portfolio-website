@@ -1,4 +1,5 @@
 .overview {
+  width: var(--siteWidth);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

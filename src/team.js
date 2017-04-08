@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
+import styles from '../style/team.css';
 
 export default function Team({ anchor, portrait, biography, employees }) {
   return (
-    <section id={anchor}>
+    <section className={styles.team} id={anchor}>
       <img src={portrait} />
       <p>{biography}</p>
       <ul>

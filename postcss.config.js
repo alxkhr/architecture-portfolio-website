@@ -6,7 +6,8 @@ module.exports = {
       features: {
         customProperties: {
           variables: {
-            siteWidth: '975px'
+            siteWidth: '975px',
+            navigationHeight: '4rem'
           }
         }
       },
