@@ -4,17 +4,20 @@ import styles from '../style/project.css';
 
 export default function Project({ title, summary, images, specification, anchor }) {
   return (
-    <section id={anchor}>
+    <section className={styles.project} id={anchor}>
       {images.length > 1
         ? <Gallery images={images} />
         : <img className={styles.image} src={images[0]} />}
-      <h1>{title}</h1>
-      <p>{summary}</p>
+      <h1 className={styles.title}>{title}</h1>
+      <p className={styles.text}>{summary}</p>
       {specification &&
         specification.length > 0 &&
-        <ul>
+        <ul className={styles.specification}>
           {specification.map((item, i) => (
-            <li key={i}><span>{item.id}</span><span>{item.value}</span></li>
+            <li className={styles.item} key={i}>
+              <span className={styles.label}>{item.id}</span>
+              <span className={styles.value}>{item.value}</span>
+            </li>
           ))}
         </ul>}
     </section>

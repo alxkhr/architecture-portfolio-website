@@ -1,0 +1,55 @@
+.buttonLeft,
+.buttonRight {
+  all: initial;
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: calc(var(--siteWidth) / 3 * 2);
+  display: inline-block;
+  cursor: pointer;
+
+  & svg {
+    opacity: 0;
+  }
+
+  &:hover svg {
+    opacity: 0.99;
+  }
+}
+
+.buttonRight {
+  text-align: right;
+  right: 0;
+}
+
+.buttonLeft {
+  left: 0;
+}
+
+.blackLeftTriangle,
+.whiteLeftTriangle,
+.blackRightTriangle,
+.whiteRightTriangle {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.blackLeftTriangle {
+  fill: #ddd;
+  margin-left: -1.7rem;
+}
+
+.whiteLeftTriangle {
+  fill: #fff;
+  margin-left: 1rem;
+}
+
+.blackRightTriangle {
+  fill: #ddd;
+  margin-right: -1.7rem;
+}
+
+.whiteRightTriangle {
+  fill: #fff;
+  margin-right: 1rem;
+}
