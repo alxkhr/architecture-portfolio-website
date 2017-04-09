@@ -4,7 +4,7 @@ rsscContent = {
     {
       anchor: 'project1',
       title: 'some title',
-      imageSources: ['assets/example1-image.jpg'],
+      images: [{ source: 'assets/example1-image.jpg', photographer: 'anybody1' }],
       thumbnailSource: 'assets/example1-thumb.jpg',
       thumbnailHoverSource: 'assets/example1-hover-thumb.jpg',
       summary: 'some *description* about the project',
@@ -13,10 +13,10 @@ rsscContent = {
     {
       anchor: 'project2',
       title: 'some other title',
-      imageSources: [
-        'assets/example2a-image.jpg',
-        'assets/example2b-image.jpg',
-        'assets/example2c-image.jpg',
+      images: [
+        { source: 'assets/example2a-image.jpg', photographer: 'anybody2' },
+        { source: 'assets/example2b-image.jpg', photographer: 'anybody3' },
+        { source: 'assets/example2c-image.jpg', photographer: 'anybody4' },
       ],
       thumbnailSource: 'assets/example2-thumb.jpg',
       thumbnailHoverSource: 'assets/example2-hover-thumb.jpg',
@@ -26,7 +26,10 @@ rsscContent = {
     {
       anchor: 'project3',
       title: 'some third title',
-      imageSources: ['assets/example3a-image.jpg', 'assets/example3b-image.jpg'],
+      images: [
+        { source: 'assets/example3a-image.jpg', photographer: 'anybody5' },
+        { source: 'assets/example3b-image.jpg', photographer: 'anybody6' },
+      ],
       thumbnailSource: 'assets/example3-thumb.jpg',
       thumbnailHoverSource: 'assets/example3-hover-thumb.jpg',
       summary: 'some **third** description about the project',
@@ -35,7 +38,7 @@ rsscContent = {
     {
       anchor: 'project4',
       title: 'some title',
-      imageSources: ['assets/example1-image.jpg'],
+      images: [{ source: 'assets/example1-image.jpg', photographer: 'anybody' }],
       thumbnailSource: 'assets/example1-thumb.jpg',
       thumbnailHoverSource: 'assets/example1-hover-thumb.jpg',
       summary: 'some *description* about the project',
@@ -44,10 +47,10 @@ rsscContent = {
     {
       anchor: 'project5',
       title: 'some other title',
-      imageSources: [
-        'assets/example2a-image.jpg',
-        'assets/example2b-image.jpg',
-        'assets/example2c-image.jpg',
+      images: [
+        { source: 'assets/example2a-image.jpg', photographer: 'anybody' },
+        { source: 'assets/example2b-image.jpg', photographer: 'anybody' },
+        { source: 'assets/example2c-image.jpg', photographer: 'anybody' },
       ],
       thumbnailSource: 'assets/example2-thumb.jpg',
       thumbnailHoverSource: 'assets/example2-hover-thumb.jpg',
@@ -57,7 +60,10 @@ rsscContent = {
     {
       anchor: 'project6',
       title: 'some third title',
-      imageSources: ['assets/example3a-image.jpg', 'assets/example3b-image.jpg'],
+      images: [
+        { source: 'assets/example3a-image.jpg', photographer: 'anybody' },
+        { source: 'assets/example3b-image.jpg', photographer: 'anybody' },
+      ],
       thumbnailSource: 'assets/example3-thumb.jpg',
       thumbnailHoverSource: 'assets/example3-hover-thumb.jpg',
       summary: 'some **third** description about the project',

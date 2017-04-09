@@ -10,7 +10,7 @@ function getOnClickHandler(callback) {
 
 export default function GalleryMenu({ onClickNext, onClickPrevious }) {
   return (
-    <div className={styles.menu}>
+    <div className={styles.galleryMenu}>
       {onClickPrevious &&
         <button className={styles.buttonLeft} onClick={getOnClickHandler(onClickPrevious)}>
           <svg className={styles.blackLeftTriangle} viewBox="0 0 6 6">

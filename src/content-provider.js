@@ -33,7 +33,7 @@ export default function ContentProvider() {
           key={i}
           anchor={project.anchor}
           title={project.title}
-          images={project.imageSources}
+          images={project.images}
           summary={project.summary}
           specification={Object.keys(project.specification).map(key => ({
             id: key,

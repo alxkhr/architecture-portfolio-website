@@ -5,9 +5,7 @@ import styles from '../style/project.css';
 export default function Project({ title, summary, images, specification, anchor }) {
   return (
     <section className={styles.project} id={anchor}>
-      {images.length > 1
-        ? <Gallery images={images} />
-        : <img className={styles.image} src={images[0]} />}
+      {images.length > 0 && <Gallery images={images} />}
       <h1 className={styles.title}>{title}</h1>
       <p className={styles.text}>{summary}</p>
       {specification &&
@@ -26,7 +24,10 @@ export default function Project({ title, summary, images, specification, anchor 
 
 Project.propTypes = {
   anchor: PropTypes.string,
-  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  images: PropTypes.arrayOf(PropTypes.shape({
+    source: PropTypes.string.isRequired,
+    photographer: PropTypes.string,
+  })).isRequired,
   title: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
   specification: PropTypes.arrayOf(

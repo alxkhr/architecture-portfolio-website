@@ -22,7 +22,7 @@ test.beforeEach(t => {
       {
         anchor: 'project1',
         title: 'some title',
-        imageSources: ['example1-image.jpg'],
+        images: [{ source: 'assets/example1-image.jpg', photographer: 'anybody1' }],
         thumbnailSource: 'example1-thumb.jpg',
         thumbnailHoverSource: 'example1-hover-thumb.jpg',
         summary: 'some *description* about the project',
@@ -31,7 +31,11 @@ test.beforeEach(t => {
       {
         anchor: 'project2',
         title: 'some other title',
-        imageSources: ['example2a-image.jpg', 'example2b-image.jpg', 'example2c-image.jpg'],
+        images: [
+          { source: 'assets/example2a-image.jpg', photographer: 'anybody2' },
+          { source: 'assets/example2b-image.jpg', photographer: 'anybody3' },
+          { source: 'assets/example2c-image.jpg', photographer: 'anybody4' },
+        ],
         thumbnailSource: 'example2-thumb.jpg',
         thumbnailHoverSource: 'example2-hover-thumb.jpg',
         summary: 'some _other_ description about the project',
@@ -40,7 +44,10 @@ test.beforeEach(t => {
       {
         anchor: 'project3',
         title: 'some third title',
-        imageSources: ['example3a-image.jpg', 'example3b-image.jpg'],
+        images: [
+          { source: 'assets/example3a-image.jpg', photographer: 'anybody5' },
+          { source: 'assets/example3b-image.jpg', photographer: 'anybody6' },
+        ],
         thumbnailSource: 'example3-thumb.jpg',
         thumbnailHoverSource: 'example3-hover-thumb.jpg',
         summary: 'some **third** description about the project',
@@ -126,7 +133,9 @@ test('Provide the anchor, the title, the images, the summary and the specificati
   const wrapper = shallow(<ContentProvider />);
   t.is(wrapper.find('Project').at(0).prop('anchor'), 'project1');
   t.is(wrapper.find('Project').at(0).prop('title'), 'some title');
-  t.deepEqual(wrapper.find('Project').at(0).prop('images'), ['example1-image.jpg']);
+  t.deepEqual(wrapper.find('Project').at(0).prop('images'), [
+    { source: 'assets/example1-image.jpg', photographer: 'anybody1' },
+  ]);
   t.is(wrapper.find('Project').at(0).prop('summary'), 'some *description* about the project');
   t.deepEqual(wrapper.find('Project').at(0).prop('specification'), [
     { id: 'one', value: 'foo' },
@@ -136,19 +145,24 @@ test('Provide the anchor, the title, the images, the summary and the specificati
   t.is(wrapper.find('Project').at(1).prop('anchor'), 'project2');
   t.is(wrapper.find('Project').at(1).prop('title'), 'some other title');
   t.deepEqual(wrapper.find('Project').at(1).prop('images'), [
-    'example2a-image.jpg',
-    'example2b-image.jpg',
-    'example2c-image.jpg',
+    { source: 'assets/example2a-image.jpg', photographer: 'anybody2' },
+    { source: 'assets/example2b-image.jpg', photographer: 'anybody3' },
+    { source: 'assets/example2c-image.jpg', photographer: 'anybody4' },
   ]);
   t.is(wrapper.find('Project').at(1).prop('summary'), 'some _other_ description about the project');
-  t.deepEqual(wrapper.find('Project').at(1).prop('specification'), [{ id: 'foo', value: 'barbaz' }]);
+  t.deepEqual(wrapper.find('Project').at(1).prop('specification'), [
+    { id: 'foo', value: 'barbaz' },
+  ]);
   t.is(wrapper.find('Project').at(2).prop('anchor'), 'project3');
   t.is(wrapper.find('Project').at(2).prop('title'), 'some third title');
   t.deepEqual(wrapper.find('Project').at(2).prop('images'), [
-    'example3a-image.jpg',
-    'example3b-image.jpg',
+    { source: 'assets/example3a-image.jpg', photographer: 'anybody5' },
+    { source: 'assets/example3b-image.jpg', photographer: 'anybody6' },
   ]);
-  t.is(wrapper.find('Project').at(2).prop('summary'), 'some **third** description about the project');
+  t.is(
+    wrapper.find('Project').at(2).prop('summary'),
+    'some **third** description about the project',
+  );
   t.deepEqual(wrapper.find('Project').at(2).prop('specification'), [
     { id: 'one', value: 'foo' },
     { id: 'two', value: 'bar' },

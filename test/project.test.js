@@ -17,22 +17,18 @@ test('Render the given title and summary.', t => {
   t.true(wrapper.containsMatchingElement(<p>foo summary</p>));
 });
 
-test('Render the given image, if only one is given.', t => {
-  const wrapper = shallow(<Project {...requiredProps} images={['foo-image.jpg']} />);
-  t.true(wrapper.containsMatchingElement(<img src="foo-image.jpg" />));
+test('Render no Gallery, if no image is given.', t => {
+  const wrapper = shallow(<Project {...requiredProps} images={[]} />);
   t.is(wrapper.find('Gallery').length, 0);
 });
 
-test('Render a Gallery, if more than one image is given.', t => {
-  const wrapper = shallow(
-    <Project {...requiredProps} images={['foo1.jpg', 'foo2.jpg', 'foo3.jpg']} />,
-  );
-  t.false(wrapper.containsMatchingElement(<img src="foo-image.jpg" />));
+test('Render a Gallery, if at least one image is given.', t => {
+  const wrapper = shallow(<Project {...requiredProps} images={[{ source: 'foo1.jpg' }]} />);
   t.is(wrapper.find('Gallery').length, 1);
 });
 
 test('Pass the images to the Gallery.', t => {
-  const images = ['foo1.jpg', 'foo2.jpg', 'foo3.jpg'];
+  const images = [{ source: 'foo1.jpg'}, { source: 'foo2.jpg' }, { source: 'foo3.jpg' }];
   const wrapper = shallow(<Project {...requiredProps} images={images} />);
   t.deepEqual(wrapper.find('Gallery').props('images'), { images });
 });

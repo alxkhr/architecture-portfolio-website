@@ -35,19 +35,24 @@ export default class Gallery extends Component {
     const { onClickNext, onClickPrevious, props, state } = this;
     const { images } = props;
     const { imageIndex, hovered } = state;
+    const { source, photographer } = images[imageIndex];
     return (
       <div
         className={styles.gallery}
-        onMouseEnter={() => this.setState({ hovered: true })}
-        onMouseLeave={() => this.setState({ hovered: false })}
+        onMouseEnter={images.length > 1 ? () => this.setState({ hovered: true }) : undefined}
+        onMouseLeave={images.length > 1 ? () => this.setState({ hovered: false }) : undefined}
       >
-        <img className={styles.image} src={images[imageIndex]} />
-        {hovered && <GalleryMenu className={styles.menu} {...{ onClickNext, onClickPrevious }} />}
+        <img className={styles.image} src={source} />
+        {hovered && <GalleryMenu {...{ onClickNext, onClickPrevious }} />}
+        {photographer && <p>{photographer}</p> /* TODO flexbox with middle index of image */}
       </div>
     );
   }
 }
 
 Gallery.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  images: PropTypes.arrayOf(PropTypes.shape({
+    source: PropTypes.string.isRequired,
+    photographer: PropTypes.string,
+  })).isRequired,
 };
