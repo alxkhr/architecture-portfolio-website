@@ -18,7 +18,14 @@ body {
   color: #888;
 }
 
-div, ul, li, p, h1, h2, h3, img {
+div,
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+img {
   position: relative;
   border: none;
   margin: 0;
