@@ -6,17 +6,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #fff;
 }
 
 .navigation {
   width: var(--siteWidth);
   display: flex;
+  align-items: baseline;
   justify-content: space-between;
 }
 
 .title {
   line-height: var(--navigationHeight);
+  font-size: 1.6rem;
   flex: 0 0 auto;
   padding-right: 1rem;
 }
@@ -25,13 +27,14 @@
   height: var(--navigationHeight);
   flex: 0 0 auto;
   display: flex;
+  align-items: baseline;
 }
 
 .item {
   height: var(--navigationHeight);
-  line-height: var(--navigationHeight);
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  font-size: 1.2rem;
 
   &:last-child {
     padding-right: 0;

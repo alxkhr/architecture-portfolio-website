@@ -10,12 +10,13 @@ html {
 }
 
 html {
-  font-family: sans-serif;
-  font-size: 90%;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
+  font-size: 95%;
 }
 
 body {
-  color: #888;
+  color: #777;
 }
 
 div,
@@ -47,4 +48,12 @@ a {
   &:hover {
     text-decoration: underline;
   }
+}
+
+h1,
+h2,
+h3 {
+  /* font-family: 'Fira Sans Extra Condensed', sans-serif; */
+  font-weight: 300;
+  letter-spacing: 0.05em;
 }

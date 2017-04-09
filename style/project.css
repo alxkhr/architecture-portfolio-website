@@ -2,6 +2,12 @@
   width: var(--siteWidth);
 }
 
+.title {
+  font-size: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
 .image {
   width: var(--siteWidth);
   height: calc(var(--siteWidth) / 3 * 2);

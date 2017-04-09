@@ -1,5 +1,5 @@
 rsscContent = {
-  title: 'foo title',
+  title: 'Architektur',
   projects: [
     {
       anchor: 'project1',
