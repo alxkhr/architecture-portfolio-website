@@ -1,3 +1,24 @@
 .contact {
   width: var(--siteWidth);
 }
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.item {
+  margin-bottom: 0.5rem;
+}
+
+.type {
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.03rem;
+  display: inline-block;
+  width: 5rem;
+}
+
+.value {
+  white-space: pre-line;
+}

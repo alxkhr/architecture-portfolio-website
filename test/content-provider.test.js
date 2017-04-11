@@ -61,20 +61,22 @@ test.beforeEach(t => {
     team: {
       navigationTitle: 'Team',
       anchor: 'team',
+      bearer: 'foo bearer',
       portrait: 'portrait-image.jpg',
-      biography: 'some foo biography',
+      resume: [
+        { date: 'foo date', event: 'foo event' },
+        { date: 'bar date', event: 'bar event' },
+        { date: 'baz date', event: 'baz event' },
+      ],
       employees: ['personFoo', 'personBar', 'personBaz'],
     },
     contact: {
       navigationTitle: 'Kontakt',
       anchor: 'contact',
       phone: 'foo-number',
+      fax: 'foo-fax',
       email: 'foo.email@address.bar',
       address: 'foo, address',
-    },
-    disclaimer: {
-      anchor: 'disclaimer',
-      text: 'some foo disclaimer',
     },
   };
 });
@@ -174,11 +176,15 @@ test('Render a Team.', t => {
   t.is(wrapper.find('Team').length, 1);
 });
 
-test('Provide the anchor, the portrait, the biography and the list of employees for the Team.', t => {
+test('Provide the anchor, the portrait, the resume and the list of employees for the Team.', t => {
   const wrapper = shallow(<ContentProvider />);
   t.is(wrapper.find('Team').prop('anchor'), 'team');
   t.is(wrapper.find('Team').prop('portrait'), 'portrait-image.jpg');
-  t.is(wrapper.find('Team').prop('biography'), 'some foo biography');
+  t.deepEqual(wrapper.find('Team').prop('resume'), [
+    { date: 'foo date', event: 'foo event' },
+    { date: 'bar date', event: 'bar event' },
+    { date: 'baz date', event: 'baz event' },
+  ]);
   t.deepEqual(wrapper.find('Team').prop('employees'), ['personFoo', 'personBar', 'personBaz']);
 });
 
@@ -187,23 +193,13 @@ test('Render a Contact.', t => {
   t.is(wrapper.find('Contact').length, 1);
 });
 
-test('Provide the anchor and the address, email and phone number as type/value pair for the Contact.', t => {
+test('Provide the anchor and the address, email, fax and phone number as type/value pair for the Contact.', t => {
   const wrapper = shallow(<ContentProvider />);
   t.is(wrapper.find('Contact').prop('anchor'), 'contact');
   t.deepEqual(wrapper.find('Contact').prop('types'), [
+    { value: 'foo, address' },
     { type: 'Telefon', value: 'foo-number' },
+    { type: 'Fax', value: 'foo-fax' },
     { type: 'Email', value: 'foo.email@address.bar' },
-    { type: 'Adresse', value: 'foo, address' },
   ]);
-});
-
-test('Render a Disclaimer.', t => {
-  const wrapper = shallow(<ContentProvider />);
-  t.is(wrapper.find('Disclaimer').length, 1);
-});
-
-test('Provide the anchor and the text for the Disclaimer.', t => {
-  const wrapper = shallow(<ContentProvider />);
-  t.is(wrapper.find('Disclaimer').prop('anchor'), 'disclaimer');
-  t.is(wrapper.find('Disclaimer').prop('children'), 'some foo disclaimer');
 });

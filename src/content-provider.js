@@ -5,17 +5,17 @@ import ProjectOverview from './project-overview';
 import Project from './project';
 import Team from './team';
 import Contact from './contact';
-import Disclaimer from './disclaimer';
+import Footer from './footer';
 import style from '../style/content-provider.css';
 
 export default function ContentProvider() {
   if (!rsscContent) return <ErrorSite text="Daten konnten nicht geladen werden." />;
-  const { title, projects, projectOverview, team, contact, disclaimer } = rsscContent;
+  const { title, projects, projectOverview, team, contact } = rsscContent;
   return (
     <div className={style.contentProvider}>
       <Navigation
         title={title}
-        navigation={[projectOverview, team, contact, disclaimer]
+        navigation={[projectOverview, team, contact]
           .filter(section => Boolean(section.navigationTitle))
           .map(section => ({ title: section.navigationTitle, anchor: section.anchor }))}
       />
@@ -43,19 +43,26 @@ export default function ContentProvider() {
       ))}
       <Team
         anchor={team.anchor}
+        bearer={team.bearer}
         portrait={team.portrait}
-        biography={team.biography}
+        resume={team.resume}
         employees={team.employees}
+        partners={team.partners}
+        formerEmployees={team.formerEmployees}
       />
       <Contact
         anchor={contact.anchor}
         types={[
+          { value: contact.address },
           { type: 'Telefon', value: contact.phone },
+          { type: 'Fax', value: contact.fax },
           { type: 'Email', value: contact.email },
-          { type: 'Adresse', value: contact.address },
         ]}
       />
-      <Disclaimer anchor={disclaimer.anchor}>{disclaimer.text}</Disclaimer>
+      <Footer
+        anchor="credits"
+        credits="[Webdesign &amp; Programmierung von Alexander Kehr](http://alexanderkehr.de)"
+      />
     </div>
   );
 }

@@ -1,0 +1,15 @@
+.footer {
+  width: var(--siteWidth);
+  padding-top: 3px;
+}
+
+.credits {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #ddd;
+  text-align: right;
+
+  & a {
+    color: #ddd;
+  }
+}

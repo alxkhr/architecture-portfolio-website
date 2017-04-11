@@ -1,6 +1,5 @@
 .project {
   width: var(--siteWidth);
-  padding-bottom: 4rem;
 }
 
 .title {
@@ -16,6 +15,7 @@
 
 .text {
   width: 67%;
+  white-space: pre-line;
   display: inline-block;
   vertical-align: top;
   padding-right: 2rem;
@@ -41,16 +41,13 @@
   text-align: left;
   font-family: 'Fira Sans Extra Condensed', sans-serif;
   font-weight: 300;
-  font-size: 1.2rem;
   letter-spacing: 0.03rem;
   display: inline-block;
-  vertical-align: baseline;
-  line-height: 0;
+  vertical-align: top;
 }
 
 .value {
   width: 60%;
   text-align: right;
   display: inline-block;
-  line-height: 1.5rem;
 }

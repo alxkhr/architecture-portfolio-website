@@ -44,7 +44,7 @@ export default class Gallery extends Component {
       >
         <img className={styles.image} src={source} />
         {hovered && <GalleryMenu {...{ onClickNext, onClickPrevious }} />}
-        {photographer && <p>{photographer}</p> /* TODO flexbox with middle index of image */}
+        {photographer && <p className={styles.caption}>Bild: {photographer}</p>}
       </div>
     );
   }

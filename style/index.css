@@ -12,7 +12,7 @@ html {
 html {
   font-family: 'Fira Sans', sans-serif;
   font-weight: 400;
-  font-size: 95%;
+  font-size: 110%;
 }
 
 body {
@@ -39,6 +39,8 @@ li {
 
 section {
   padding-top: var(--navigationHeight);
+  padding-bottom: var(--navigationHeight);
+  border-top: 1px solid #ddd;
 }
 
 a {

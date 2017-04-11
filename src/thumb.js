@@ -23,7 +23,10 @@ export default class Thumb extends Component {
       <div className={styles.thumb}>
         <a href={`#${anchor}`} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
           {!hovered && <h2 className={styles.title}>{title}</h2>}
-          <img className={styles.image} src={hovered ? hoverImage : image} />
+          <img
+            className={hovered ? styles.hovered : styles.image}
+            src={hovered ? hoverImage : image}
+          />
         </a>
       </div>
     );

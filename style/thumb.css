@@ -25,4 +25,10 @@
   height: var(--sideLength);
   width: var(--sideLength);
   z-index: 0;
+  filter: contrast(15%) brightness(160%) saturate(150%);
+}
+
+.hovered {
+  height: var(--sideLength);
+  width: var(--sideLength);
 }
