@@ -24,7 +24,6 @@ test.beforeEach(t => {
         title: 'some title',
         images: [{ source: 'assets/example1-image.jpg', photographer: 'anybody1' }],
         thumbnailSource: 'example1-thumb.jpg',
-        thumbnailHoverSource: 'example1-hover-thumb.jpg',
         summary: 'some *description* about the project',
         specification: { one: 'foo', two: 'bar', three: 'baz' },
       },
@@ -37,7 +36,6 @@ test.beforeEach(t => {
           { source: 'assets/example2c-image.jpg', photographer: 'anybody4' },
         ],
         thumbnailSource: 'example2-thumb.jpg',
-        thumbnailHoverSource: 'example2-hover-thumb.jpg',
         summary: 'some _other_ description about the project',
         specification: { foo: 'barbaz' },
       },
@@ -49,7 +47,6 @@ test.beforeEach(t => {
           { source: 'assets/example3b-image.jpg', photographer: 'anybody6' },
         ],
         thumbnailSource: 'example3-thumb.jpg',
-        thumbnailHoverSource: 'example3-hover-thumb.jpg',
         summary: 'some **third** description about the project',
         specification: { one: 'foo', two: 'bar' },
       },
@@ -61,12 +58,16 @@ test.beforeEach(t => {
     team: {
       navigationTitle: 'Team',
       anchor: 'team',
-      bearer: 'foo bearer',
-      portrait: 'portrait-image.jpg',
-      resume: [
-        { date: 'foo date', event: 'foo event' },
-        { date: 'bar date', event: 'bar event' },
-        { date: 'baz date', event: 'baz event' },
+      biografies: [
+        {
+          name: 'foo name',
+          portrait: 'portrait-image.jpg',
+          resume: [
+            { date: 'foo date', event: 'foo event' },
+            { date: 'bar date', event: 'bar event' },
+            { date: 'baz date', event: 'baz event' },
+          ],
+        },
       ],
       employees: ['personFoo', 'personBar', 'personBaz'],
     },
@@ -101,7 +102,7 @@ test('Render a ProjectOverview.', t => {
   t.is(wrapper.find('ProjectOverview').length, 1);
 });
 
-test('Provide an own anchor and the thumbnail, thumbnailHover title and anchor of every project for the ProjectOverview.', t => {
+test('Provide an own anchor and the thumbnail, title and anchor of every project for the ProjectOverview.', t => {
   const wrapper = shallow(<ContentProvider />);
   t.is(wrapper.find('ProjectOverview').prop('anchor'), 'overview');
   t.deepEqual(wrapper.find('ProjectOverview').prop('projects'), [
@@ -109,19 +110,16 @@ test('Provide an own anchor and the thumbnail, thumbnailHover title and anchor o
       title: 'some title',
       anchor: 'project1',
       thumbnail: 'example1-thumb.jpg',
-      thumbnailHover: 'example1-hover-thumb.jpg',
     },
     {
       title: 'some other title',
       anchor: 'project2',
       thumbnail: 'example2-thumb.jpg',
-      thumbnailHover: 'example2-hover-thumb.jpg',
     },
     {
       title: 'some third title',
       anchor: 'project3',
       thumbnail: 'example3-thumb.jpg',
-      thumbnailHover: 'example3-hover-thumb.jpg',
     },
   ]);
 });
@@ -176,14 +174,19 @@ test('Render a Team.', t => {
   t.is(wrapper.find('Team').length, 1);
 });
 
-test('Provide the anchor, the portrait, the resume and the list of employees for the Team.', t => {
+test('Provide the anchor, the biografies and the list of employees for the Team.', t => {
   const wrapper = shallow(<ContentProvider />);
   t.is(wrapper.find('Team').prop('anchor'), 'team');
-  t.is(wrapper.find('Team').prop('portrait'), 'portrait-image.jpg');
-  t.deepEqual(wrapper.find('Team').prop('resume'), [
-    { date: 'foo date', event: 'foo event' },
-    { date: 'bar date', event: 'bar event' },
-    { date: 'baz date', event: 'baz event' },
+  t.deepEqual(wrapper.find('Team').prop('biografies'), [
+    {
+      name: 'foo name',
+      portrait: 'portrait-image.jpg',
+      resume: [
+        { date: 'foo date', event: 'foo event' },
+        { date: 'bar date', event: 'bar event' },
+        { date: 'baz date', event: 'baz event' },
+      ],
+    },
   ]);
   t.deepEqual(wrapper.find('Team').prop('employees'), ['personFoo', 'personBar', 'personBaz']);
 });

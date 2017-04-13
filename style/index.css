@@ -16,7 +16,7 @@ html {
 }
 
 body {
-  color: #777;
+  color: var(--fontColor);
 }
 
 div,
@@ -45,7 +45,7 @@ section {
 
 a {
   text-decoration: none;
-  color: #000;
+  color: var(--fontColor);
 
   &:hover {
     text-decoration: underline;

@@ -3,8 +3,24 @@
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 1.6rem;
   margin-bottom: 1rem;
+}
+
+.twoColumns {
+  display: flex;
+}
+
+.map {
+  display: block;
+  max-width: calc(var(--siteWidth) / 2);
+  width: auto;
+  height: auto;
+}
+
+.list {
+  flex: 1 1 auto;
+  margin-right: 2rem;
 }
 
 .item {
@@ -12,7 +28,6 @@
 }
 
 .type {
-  font-family: 'Fira Sans Extra Condensed', sans-serif;
   font-weight: 300;
   letter-spacing: 0.03rem;
   display: inline-block;

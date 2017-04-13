@@ -13,20 +13,14 @@ export default function GalleryMenu({ onClickNext, onClickPrevious }) {
     <div className={styles.galleryMenu}>
       {onClickPrevious &&
         <button className={styles.buttonLeft} onClick={getOnClickHandler(onClickPrevious)}>
-          <svg className={styles.blackLeftTriangle} viewBox="0 0 6 6">
-            <path d="M5,0l-4,3l4,3z" />
-          </svg>
-          <svg className={styles.whiteLeftTriangle} viewBox="0 0 6 6">
-            <path d="M5,0l-4,3l4,3z" />
+          <svg className={styles.leftTriangle} style={{ height: '40px', width: '48px' }} viewBox="0 0 40 48">
+            <path d="M32,8l-24,16l24,16z" />
           </svg>
         </button>}
       {onClickNext &&
         <button className={styles.buttonRight} onClick={getOnClickHandler(onClickNext)}>
-          <svg className={styles.whiteRightTriangle} viewBox="0 0 6 6">
-            <path d="M1,0l4,3l-4,3z" />
-          </svg>
-          <svg className={styles.blackRightTriangle} viewBox="0 0 6 6">
-            <path d="M1,0l4,3l-4,3z" />
+          <svg className={styles.rightTriangle} style={{ height: '40px', width: '48px' }} viewBox="0 0 40 48">
+            <path d="M8,8l24,16l-24,16z" />
           </svg>
         </button>}
     </div>

@@ -7,19 +7,16 @@ import Thumb from '../src/thumb';
 const projects = [
   {
     thumbnail: 'foo1-thumb.jpg',
-    thumbnailHover: 'foo1-hover.jpg',
     title: 'foo1-title',
     anchor: 'foo1-anchor',
   },
   {
     thumbnail: 'foo2-thumb.jpg',
-    thumbnailHover: 'foo2-hover.jpg',
     title: 'foo2-title',
     anchor: 'foo2-anchor',
   },
   {
     thumbnail: 'foo3-thumb.jpg',
-    thumbnailHover: 'foo3-hover.jpg',
     title: 'foo3-title',
     anchor: 'foo3-anchor',
   },
@@ -37,7 +34,6 @@ test('Pass the thumbnail, the title and the anchor of the project to the Thumb.'
     wrapper.containsMatchingElement(
       <Thumb
         image="foo1-thumb.jpg"
-        hoverImage="foo1-hover.jpg"
         title="foo1-title"
         anchor="foo1-anchor"
       />,
@@ -47,7 +43,6 @@ test('Pass the thumbnail, the title and the anchor of the project to the Thumb.'
     wrapper.containsMatchingElement(
       <Thumb
         image="foo2-thumb.jpg"
-        hoverImage="foo2-hover.jpg"
         title="foo2-title"
         anchor="foo2-anchor"
       />,
@@ -57,7 +52,6 @@ test('Pass the thumbnail, the title and the anchor of the project to the Thumb.'
     wrapper.containsMatchingElement(
       <Thumb
         image="foo3-thumb.jpg"
-        hoverImage="foo3-hover.jpg"
         title="foo3-title"
         anchor="foo3-anchor"
       />,

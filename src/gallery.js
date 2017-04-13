@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import GalleryMenu from './gallery-menu';
+import GalleryIndicator from './gallery-indicator';
 import styles from '../style/gallery.css';
 
 export default class Gallery extends Component {
@@ -44,15 +45,25 @@ export default class Gallery extends Component {
       >
         <img className={styles.image} src={source} />
         {hovered && <GalleryMenu {...{ onClickNext, onClickPrevious }} />}
-        {photographer && <p className={styles.caption}>Bild: {photographer}</p>}
+        <div className={styles.threeColumns}>
+          <div className={styles.sideColumn}>
+            {photographer && <p className={styles.caption}>{photographer}</p>}
+          </div>
+          <div className={styles.centerColumn}>
+            {images.length > 1 && <GalleryIndicator index={imageIndex} length={images.length} />}
+          </div>
+          <div className={styles.sideColumn} />
+        </div>
       </div>
     );
   }
 }
 
 Gallery.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.shape({
-    source: PropTypes.string.isRequired,
-    photographer: PropTypes.string,
-  })).isRequired,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      source: PropTypes.string.isRequired,
+      photographer: PropTypes.string,
+    }),
+  ).isRequired,
 };

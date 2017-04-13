@@ -1,0 +1,12 @@
+.indicator {
+  shape-rendering: geometricPrecision;
+  stroke: var(--fontColor);
+}
+
+.active {
+  fill: var(--fontColor);
+}
+
+.inactive {
+  fill: none;
+}

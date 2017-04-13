@@ -23,7 +23,6 @@ export default function ContentProvider() {
         anchor={projectOverview.anchor}
         projects={projects.map(project => ({
           thumbnail: project.thumbnailSource,
-          thumbnailHover: project.thumbnailHoverSource,
           title: project.title,
           anchor: project.anchor,
         }))}
@@ -43,15 +42,14 @@ export default function ContentProvider() {
       ))}
       <Team
         anchor={team.anchor}
-        bearer={team.bearer}
-        portrait={team.portrait}
-        resume={team.resume}
+        biografies={team.biografies}
         employees={team.employees}
         partners={team.partners}
         formerEmployees={team.formerEmployees}
       />
       <Contact
         anchor={contact.anchor}
+        map={contact.map}
         types={[
           { value: contact.address },
           { type: 'Telefon', value: contact.phone },

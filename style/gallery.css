@@ -10,8 +10,19 @@
 
 .caption {
   width: 100%;
-  text-align: right;
+  text-align: left;
   font-weight: 300;
   font-size: 0.8rem;
-  color: #ddd;
+}
+
+.threeColumns {
+  display: flex;
+}
+
+.sideColumn {
+  flex: 1 1 0;
+}
+
+.centerColumn {
+  flex: 0 0 auto;
 }

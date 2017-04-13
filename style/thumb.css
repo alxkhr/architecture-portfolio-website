@@ -13,11 +13,18 @@
   position: absolute;
   text-decoration: none;
   z-index: 1;
-  bottom: 0.5rem;
-  left: 0.5rem;
-  font-size: 1.2rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
   font-weight: 400;
   letter-spacing: 0;
+  background-color: #eeed;
+  height: 2.5rem;
+
+  /* box-sizing: border-box; */
 }
 
 .image {
@@ -25,10 +32,11 @@
   height: var(--sideLength);
   width: var(--sideLength);
   z-index: 0;
-  filter: contrast(15%) brightness(160%) saturate(150%);
+
+  /* filter: contrast(15%) brightness(160%) saturate(150%); */
 }
 
-.hovered {
+/* .hovered {
   height: var(--sideLength);
   width: var(--sideLength);
-}
+} */

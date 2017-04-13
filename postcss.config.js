@@ -1,13 +1,12 @@
 module.exports = {
   plugins: [
-    // require('postcss-smart-import')({}),
-    // require('precss')({}),
     require('postcss-cssnext')({
       features: {
         customProperties: {
           variables: {
             siteWidth: '972px',
-            navigationHeight: '4rem'
+            navigationHeight: '4rem',
+            fontColor: '#555'
           }
         }
       },

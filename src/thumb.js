@@ -17,16 +17,13 @@ export default class Thumb extends Component {
     this.setState({ hovered: false });
   }
   render() {
-    const { title, image, hoverImage, anchor } = this.props;
+    const { title, image, anchor } = this.props;
     const { hovered } = this.state;
     return (
       <div className={styles.thumb}>
         <a href={`#${anchor}`} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
-          {!hovered && <h2 className={styles.title}>{title}</h2>}
-          <img
-            className={hovered ? styles.hovered : styles.image}
-            src={hovered ? hoverImage : image}
-          />
+          {hovered && <h2 className={styles.title}>{title}</h2>}
+          <img className={styles.image} src={image} />
         </a>
       </div>
     );
@@ -36,6 +33,5 @@ export default class Thumb extends Component {
 Thumb.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  hoverImage: PropTypes.string.isRequired,
   anchor: PropTypes.string.isRequired,
 };

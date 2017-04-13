@@ -1,24 +1,24 @@
 import React, { PropTypes } from 'react';
 import styles from '../style/team.css';
 
-export default function Team(
-  { anchor, bearer, portrait, resume, partners, employees, formerEmployees },
-) {
+export default function Team({ anchor, biografies, partners, employees, formerEmployees }) {
   return (
     <section className={styles.team} id={anchor}>
       <h1 className={styles.title}>Büro</h1>
-      <div className={styles.twoColumns}>
-        <img src={portrait} />
-        <ul>
-          <li><h2 className={styles.bearer}>{bearer}</h2></li>
-          {resume.map(({ date, event }, i) => (
-            <li className={styles.item} key={i}>
-              <span className={styles.date}>{date}</span>
-              <span className={styles.event}>{event}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {biografies.map(({ name, portrait, resume }, i) => (
+        <div className={styles.twoColumns} key={i}>
+          <img src={portrait} />
+          <ul>
+            <li><h2 className={styles.name}>{name}</h2></li>
+            {resume.map(({ date, event }, i) => (
+              <li className={styles.item} key={i}>
+                <span className={styles.date}>{date}</span>
+                <span className={styles.event}>{event}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
       {partners && <h2 className={styles.subTitle}>Partner</h2>}
       {partners &&
         <ul>
@@ -41,14 +41,18 @@ export default function Team(
 
 Team.propTypes = {
   anchor: PropTypes.string.isRequired,
-  bearer: PropTypes.string.isRequired,
-  portrait: PropTypes.string.isRequired,
-  resume: PropTypes.arrayOf(
+  biografies: PropTypes.arrayOf(
     PropTypes.shape({
-      date: PropTypes.string.isRequired,
-      event: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      portrait: PropTypes.string.isRequired,
+      resume: PropTypes.arrayOf(
+        PropTypes.shape({
+          date: PropTypes.string.isRequired,
+          event: PropTypes.string.isRequired,
+        }),
+      ).isRequired,
     }),
-  ).isRequired,
+  ),
   partners: PropTypes.array,
   employees: PropTypes.array.isRequired,
   formerEmployees: PropTypes.array,

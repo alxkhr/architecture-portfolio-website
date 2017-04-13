@@ -35,30 +35,16 @@
   left: 0;
 }
 
-.blackLeftTriangle,
-.whiteLeftTriangle,
-.blackRightTriangle,
-.whiteRightTriangle {
-  width: 1.2rem;
-  height: 1.2rem;
-}
-
-.blackLeftTriangle {
-  fill: #ddd;
-  margin-left: -1.7rem;
-}
-
-.whiteLeftTriangle {
+.leftTriangle,
+.rightTriangle {
   fill: #fff;
-  margin-left: 1rem;
+  stroke: var(--fontColor);
 }
 
-.blackRightTriangle {
-  fill: #ddd;
-  margin-right: -1.7rem;
+.leftTriangle {
+  margin-left: 0.5rem;
 }
 
-.whiteRightTriangle {
-  fill: #fff;
-  margin-right: 1rem;
+.rightTriangle {
+  margin-right: 0.5rem;
 }
